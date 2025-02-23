@@ -55,11 +55,11 @@ jobs:
     needs: [scrap_articles]
 
     steps:
-      - name: Download article data
-        uses: actions/download-artifact@main
-
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Download article data
+        uses: actions/download-artifact@main
       
       - name: Move article data to public
         shell: bash
