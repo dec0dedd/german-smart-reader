@@ -65,7 +65,7 @@ jobs:
         shell: bash
         run: |
           ls
-          mv dw_articles.json public/dw_articles.json
+          mv article_data/dw_articles.json public/dw_articles.json
 
       - name: Set up Node
         uses: actions/setup-node@v4
