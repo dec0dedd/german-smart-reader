@@ -43,7 +43,6 @@ def fetch_article_content(url):
     if not title or not content:
         return None
 
-    print(url)
     return {"title": title.text.strip(), "content": content.strip(), "url": url}
 
 
