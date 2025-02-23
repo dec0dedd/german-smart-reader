@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const fetchDictionary = async () => {
       try {
-        const response = await fetch("/german_english.json");
+        const response = await fetch("german_english.json");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -37,7 +37,7 @@ function App() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch("/dw_articles.json");
+        const response = await fetch("dw_articles.json");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -52,7 +52,7 @@ function App() {
 
   const fetchExamples = async (word) => {
     try {
-      const response = await fetch("/word_examples.json"); // Make sure the file is in `public/`
+      const response = await fetch("word_examples.json"); // Make sure the file is in `public/`
       const data = await response.json();
       const lowerWord = word.toLowerCase(); // Match case
       setExamples(data[lowerWord] || []);
