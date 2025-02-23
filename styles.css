@@ -1,0 +1,23 @@
+/* Parent container to align main content & sidebar */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Main content takes most space */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Sidebar on the right */
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-left: 2px solid #ccc;
+    overflow-y: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
