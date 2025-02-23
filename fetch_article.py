@@ -14,12 +14,10 @@ def fetch_articles():
     soup = BeautifulSoup(response.text, "html.parser")
     articles = []
 
-    # Select article links (adjust if DW changes its structure)
     els = soup.find_all(class_="lap31d1 l1amv4u6 btl76l3 e1eo633p wgx1hx2 b1ho1h07")
     article_links = list(set([a['href'] for a in els]))
-    print(f"links {article_links}")
 
-    for link in article_links[:10]:  # Fetch 10 latest articles
+    for link in article_links[:10]:
         article_url = "https://www.dw.com" + link
         article_data = fetch_article_content(article_url)
         if article_data:

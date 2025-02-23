@@ -11,7 +11,7 @@ function App() {
   const speakWord = (word) => {
     if ('speechSynthesis' in window) {
       const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = "de-DE";  // German pronunciation
+      utterance.lang = "de-DE";
       speechSynthesis.speak(utterance);
     } else {
       console.warn("Text-to-speech not supported in this browser.");
@@ -26,7 +26,7 @@ function App() {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        setDictionary(data); // Store the dictionary in state
+        setDictionary(data);
       } catch (error) {
         console.error("Error loading dictionary:", error);
       }
@@ -54,7 +54,7 @@ function App() {
     try {
       const response = await fetch("word_examples.json"); // Make sure the file is in `public/`
       const data = await response.json();
-      const lowerWord = word.toLowerCase(); // Match case
+      const lowerWord = word.toLowerCase();  // all dictionary keys are lowercase
       setExamples(data[lowerWord] || []);
     } catch (error) {
       console.error("Error fetching examples:", error);
@@ -63,7 +63,7 @@ function App() {
   };
 
   const handleWordClick = (word) => {
-    const lowerWord = word.toLowerCase().normalize("NFC"); // Convert to lowercase
+    const lowerWord = word.toLowerCase().normalize("NFC");
     try {
       const translation = dictionary[lowerWord] || "No translation found";
       setTranslations([{ word, translation }]);

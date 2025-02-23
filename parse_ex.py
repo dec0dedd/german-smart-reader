@@ -3,12 +3,13 @@ import json
 import re
 from collections import defaultdict
 
+
 def parse_tmx(file_path):
     tree = ET.parse(file_path)
     root = tree.getroot()
 
     sentence_pairs = []
-    
+
     # Namespace fix for xml:lang
     ns = {"xml": "http://www.w3.org/XML/1998/namespace"}
 
