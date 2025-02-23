@@ -129,7 +129,7 @@ function App() {
 
         <hr/>
 
-        <h3>Example Sentences</h3>
+        <h3>Example Usage</h3>
         {examples.length > 0 ? (
           <div className="example-container">
             <ul>
