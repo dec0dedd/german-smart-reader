@@ -104,14 +104,25 @@ function App() {
         <div className="article-list">
           <h3>Wähle einen Artikel:</h3>
           {articles.map((article, index) => (
-            <button
-              key={index}
-              className="article-button"
-              onClick={() => handleArticleClick(article.content)}
-            >
-              {article.title}
-            </button>
-          ))}
+          <button
+            key={index}
+            className="article-button"
+            onClick={() => setText(article.content)}
+          >
+            {article.title}{" "}
+            {article.url && (
+              <a
+                href={article.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="article-link"
+                onClick={(e) => e.stopPropagation()} // Prevent textarea from being cleared on link click
+              >
+                (link)
+              </a>
+            )}
+          </button>
+        ))}
         </div>
       </div>
       <div className="sidebar">
