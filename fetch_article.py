@@ -46,7 +46,7 @@ def fetch_article_content(url):
     return {"title": title.text.strip(), "content": content.strip(), "url": url}
 
 
-def save_articles(articles, filename="public/dw_articles.json"):
+def save_articles(articles, filename="dw_articles.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(articles, f, ensure_ascii=False, indent=4)
 
