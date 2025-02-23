@@ -22,7 +22,7 @@ Start the development server:
 ```
 npm run dev
 ```
-Then open http://localhost:5173 in your browser.
+Then open http://localhost:5173 in your browser. The reader is also available online here: https://dec0dedd.github.io/german-smart-reader/
 
 ## Usage
 1. Copy and paste German text into the reader.

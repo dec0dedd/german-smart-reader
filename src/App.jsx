@@ -5,6 +5,7 @@ function App() {
   const [translations, setTranslations] = useState([]);
   const [text, setText] = useState("");
   const [articles, setArticles] = useState([]);
+  const [exampleData, setExampleData] = useState(null);
   const [dictionary, setDictionary] = useState({});
   const [examples, setExamples] = useState([]);
 
@@ -35,6 +36,20 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const fetchExamplesData = async () => {
+      try {
+        const response = await fetch("word_examples.json");
+        const data = await response.json();
+        setExampleData(data);
+      } catch (error) {
+        console.error("Error loading example sentences:", error);
+      }
+    };
+  
+    fetchExamplesData();
+  }, []);  
+
+  useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await fetch("dw_articles.json");
@@ -49,15 +64,12 @@ function App() {
     };
     fetchArticles();
   }, []);
-
+  
   const fetchExamples = async (word) => {
-    try {
-      const response = await fetch("word_examples.json"); // Make sure the file is in `public/`
-      const data = await response.json();
-      const lowerWord = word.toLowerCase();  // all dictionary keys are lowercase
-      setExamples(data[lowerWord] || []);
-    } catch (error) {
-      console.error("Error fetching examples:", error);
+    if (exampleData) {
+      setExamples(exampleData[word.toLowerCase()] || []);
+    } else {
+      console.error("Examples not loaded!")
       setExamples([]);
     }
   };
